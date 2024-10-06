@@ -1,0 +1,29 @@
+ul {
+    background-color: #383838;
+
+    border: 1px solid green;
+    list-style: none;
+    margin: 40px 150px;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+li{
+    padding-top: 10px;
+   
+    
+}
+.forcast{
+    border: 2px solid #6FB1B1;
+    background-color: #6FB1B1;
+    border-radius: 12px;
+}
+
+.weather-wrapper{
+    border: 2px solid ;
+    background-image: url("./images/clearclouds.jpg");
+    background-size:cover ;
+
+
+    background-color: url(./assets/images/clearclouds.jpg);
+}
