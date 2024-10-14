@@ -11,7 +11,7 @@ function App() {
     <>
       <div>
        
-        <Weather/>
+        <Weather city="Lagos"/>
        
        
       </div>

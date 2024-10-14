@@ -1,73 +1,38 @@
 import {useState}from "react";
-
 import"./Weather.css";
+import FormattedTime from "./FormattedTime";
 import CLEARCLOUDS from "./images/clearclouds.jpg"
 import axios from "axios";
 
 
-export default function  Weather(){
-    let[weatherInfo, setWeatherInfo]=useState({});
-    let[notication, setNotication]=useState(false);
+export default function  Weather(props){
+    let[weatherInfo, setWeatherInfo]=useState({notication:false});
+    let[city, setCity]=useState(props.city)
 
 
-    function formatTime(timeStamp){
-       let now = new Date(timeStamp);
-        let days=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Sat"];
-    let day = days[now.getDay()];
+    
 
-
-
-    let hour = now.getHours();
-    if(hour<10){
-        hour=`0:${hour}`
-    }
-    else{
-        hour= hour
-    }
-
-    let mins = now.getMinutes();
-    if(mins < 10){
-        mins =`0:${mins}`
-    }
-    else{
-        mins=mins;
-    }
-
-    return (`
-        ${day} ,${hour}: ${mins}`) 
-
-    }
-
-    function formatMonth(){
-        let now = new Date();
-        let date = now .getDate();
-       let months=["January","Febuary","March","April","May","June",
-                "July","August","September","October","November","December"];
-        let month = months[now.getMonth()]; 
-        let year = now.getFullYear();
-        return(`${date},${" "} ${month} ${year}`)
-        
-    }
     function handleResponse(response){
         console.log(response.data)
         setWeatherInfo({
+            notication:true,
             temperature:Math.round(response.data.temperature.current),
             city:response.data.city,
             wind: Math.round(response.data.wind.speed),
             cord:response.data.coordinates,
-            timeDay:formatTime(response.data.time*1000),
-            monthYear:formatMonth(response.data.time*1000),
+            time:new Date(response.data.time*1000),
             description:response.data.condition.description,
             humidity:Math.round(response.data.temperature.humidity),
 
     
         })
-        setNotication(true);
+        
        
         
     }
+    
 
-         if(notication){
+         if(weatherInfo.notication){
             return(
                 <div className="Weather">
                     <div className="container weather-wrapper">
@@ -92,19 +57,21 @@ export default function  Weather(){
                             
                             <li ></li>
                             <li>{weatherInfo.city}</li>
-                            <li className="date-month">{weatherInfo.monthYear}</li>
-                            <li className="day-time"></li>
+                            <li className="date-month"></li>
                             <li>Wind:{" "}
                                 {`${weatherInfo.wind} km/h`}</li>
                                 |
-                             <li>{weatherInfo.timeDay}</li>
+                           <li><FormattedTime time={weatherInfo.time}/></li>
                              <li>{weatherInfo.description}</li>
                              <li>  {`Humidity: ${weatherInfo.humidity}%`}</li>
                             
             </div>
+            </ul>
+           
+
+
                         
-                    </ul>
-               
+
                
                
     
@@ -128,7 +95,7 @@ export default function  Weather(){
          else{
 
             let apiKey="93cf0a589b1befff9b43f05fbt79bo02";
-    let apiUrl=`https://api.shecodes.io/weather/v1/current?query=uk&key=${apiKey}&units=metric`
+    let apiUrl=`https://api.shecodes.io/weather/v1/current?query=${props.city}&key=${apiKey}&units=metric`
     
     axios.get(apiUrl).then(handleResponse);
 
