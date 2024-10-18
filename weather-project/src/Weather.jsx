@@ -1,6 +1,5 @@
 import {useState}from "react";
 import"./Weather.css";
-
 import WeatherData from "./WeatherData";
 import CLEARCLOUDS from "./images/clearclouds.jpg"
 import axios from "axios";
@@ -15,9 +14,11 @@ export default function  Weather(props){
 
     function handleResponse(response){
         console.log(response.data)
+        console.log(weatherInfo.icon)
         setWeatherInfo({
             notication:true,
             temperature:Math.round(response.data.temperature.current),
+            icon:response.data.condition.icon,
             city:response.data.city,
             wind: Math.round(response.data.wind.speed),
             cord:response.data.coordinates,
@@ -57,6 +58,7 @@ export default function  Weather(props){
                    
 
                  <WeatherData data ={weatherInfo}/>
+                
 
         
             <div className="forcast">forcast
