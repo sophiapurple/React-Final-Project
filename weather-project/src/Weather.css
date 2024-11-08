@@ -1,15 +1,8 @@
-ul {
-    
 
-    
-    list-style: none;
-
-    padding: 20px;
-    border-radius: 12px;
-}
 
 li{
-    padding-top: 10px;
+    padding: 10px 30px;
+
    
     
 }
@@ -23,5 +16,20 @@ li{
     border: 2px solid ;
     background-image: url("./images/clearclouds.jpg");
     background-size:cover ;
+    
+
+}
+ul{
+    text-align: left;
+    border: 2px solid grey;
+    border-radius: 30px;
+    margin: 20px 700px 20px 70px;
+    list-style: none;
+    padding: 20px ;
+    
+}
+
+.Weather .canvas{
+    
 
 }
