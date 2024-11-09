@@ -3,10 +3,10 @@ import axios from "axios";
 
 
   export default function WeatherForcast(props){
-    let apiKey="a867e25f2d83db579421a57fd8e937ec"
-    let latitude= props.coordinates.lat;
-    let longitude= props.coordinates.lon;
-    let apiUrl=`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`
+    let apiKey="93cf0a589b1befff9b43f05fbt79bo02"
+    let latitude= props.coordinates.latitude;
+    let longitude= props.coordinates.longitude;
+    let apiUrl=`https://api.shecodes.io/weather/v1/forecast?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=metric`
  axios.get(apiUrl).then(displayForcast);
  
 
