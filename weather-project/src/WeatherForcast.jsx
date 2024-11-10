@@ -1,40 +1,51 @@
-import React from "react";
+import React,{useState} from "react";
 import axios from "axios";
+import ForcastDay from "./ForcastDay";
 
 
   export default function WeatherForcast(props){
-    let apiKey="93cf0a589b1befff9b43f05fbt79bo02"
-    let latitude= props.coordinates.latitude;
-    let longitude= props.coordinates.longitude;
-    let apiUrl=`https://api.shecodes.io/weather/v1/forecast?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=metric`
- axios.get(apiUrl).then(displayForcast);
- 
+    let[forcast, setForcast]=useState(null);
+    let[loaded, setLoaded]=useState(false);
 
+    
+ 
+console.log(forcast)
  function displayForcast(response){
-    console.log(response.data)
+    setLoaded(true)
+    setForcast(response.data.daily)
  }
 
-
- console.log(latitude)
- console.log(longitude)
  
-    
-    
+ 
+    if(loaded){
     return(
-        
-        <div className="forcast">forcast
-        <div className="forcastTemp">temp</div>
-      
-        <div className="forcastImg">img</div>
-        <div className="forcastgroupTemp">
-            <span className="max">max</span>
-            <span className="min">max</span>
-        </div>
-    </div>
+        <div className="forcast">
+           {forcast.map(function(dailyForcast, index){
+            if(index < 6){
+            return(
+              <div key={index}>
+              <ForcastDay forcast={dailyForcast}/>
+              </div>
+            )
+          }
+           })}
+
+   
+   </div>
+    
     )
 
     
-
+    }
+    else{
+        let apiKey="93cf0a589b1befff9b43f05fbt79bo02"
+    let latitude= props.coordinates.latitude;
+    let longitude= props.coordinates.longitude;
+    let apiUrl=`https://api.shecodes.io/weather/v1/forecast?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=metric`
+   
+      axios.get(apiUrl).then(displayForcast);
+    }
+    return "Loading.."
 
 }
 
