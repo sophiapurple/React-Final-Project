@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState, useEffect} from "react";
 import axios from "axios";
 import ForcastDay from "./ForcastDay";
 
@@ -8,7 +8,9 @@ import ForcastDay from "./ForcastDay";
     let[loaded, setLoaded]=useState(false);
 
     
- 
+ useEffect(()=>{
+  setLoaded(false)
+ },[props.coordinates])
 console.log(forcast)
  function displayForcast(response){
     setLoaded(true)
@@ -31,7 +33,7 @@ console.log(forcast)
            })}
 
    
-   </div>
+   </div> 
     
     )
 
