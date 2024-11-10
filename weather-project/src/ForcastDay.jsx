@@ -4,7 +4,7 @@ import React from "react";
 
 
 export default function ForcastDay(props){
-    console.log(props.timestamp)
+    
 
     function ForcastDay(){
         let now = new Date(props.forcast.time*1000);
@@ -38,8 +38,9 @@ export default function ForcastDay(props){
 
             </div>
           
-                <div className="image">image
-                    <img src="" alt="" />
+                <div className="image">
+                    <img src={props.forcast.condition.icon_url} 
+                    alt={props.forcast.condition.description} />
                 </div>
                 <div className="max-min">
                 <span className="me-2" >{maxTemperature()}</span>

@@ -22,14 +22,14 @@ export default function  Weather(props){
         console.log(response.data)
         setWeatherInfo({
             notication:true,
-            temperature:Math.round(response.data.temperature.current),
-            icon: response.data.condition.icon,
+            temperature:`${Math.round(response.data.temperature.current)}°`,
+            icon: response.data.condition.icon_url,
             city:response.data.city,
             wind: Math.round(response.data.wind.speed),
             coordinates:response.data.coordinates,
             time:new Date(response.data.time*1000),
             description:response.data.condition.description,
-            humidity:Math.round(response.data.temperature.humidity),
+            humidity:`${Math.round(response.data.temperature.humidity)}%`,
         })   
     }
     
