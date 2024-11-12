@@ -72,11 +72,15 @@ export default function  Weather(props){
                 
                  </div>
 
-            </div>
+        
            
+            <footer>
+                <p>It was coded by Chinelo Okpala, open sourced
+                    </p>
+                </footer>
     
         </div>
-    
+    </div>
             )
           
          }

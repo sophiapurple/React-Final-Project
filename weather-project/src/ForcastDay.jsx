@@ -43,13 +43,14 @@ export default function ForcastDay(props){
                 </div>
                 
                 <div className="max-min">
-                <span className=" me-2 fw-light">{minTemperature()}°
+                <span className=" minTemperature fw-light">{minTemperature()}°
                 </span>
-                <span className="colorChange" >{maxTemperature()}°
+                <span className="maxTemperature colorChange" >{maxTemperature()}°
                 </span>
                  </div>
        
         </div>
+        
 </div>
     
         
