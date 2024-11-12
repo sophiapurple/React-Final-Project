@@ -13,6 +13,10 @@ export default function FormattedTime(props){
         mins=`0:${mins}`
     }
     return(
-        `${days},${hour}:${mins}`
+        <div>
+        <div>{days}</div>
+        <div className="colorChange">{hour}:{mins}</div>
+        </div>
+        
     )
 }

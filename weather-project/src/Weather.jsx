@@ -54,12 +54,15 @@ export default function  Weather(props){
          
          if(weatherInfo.notication){
             return(
-                <div className="Weather text-white">
-                    <div className="container weather-wrapper">
+                <div className="Weather ">
+                    <div className=" weather-wrapper container-fluid">
                    
                    <form onSubmit={handleSubmit}>
-                    <input type="text" className=" rounded mt-3 ps-5" onChange={handleCityChange}  />
-                    <input type="submit" value="Search" className="ms-2 rounded" />
+                   
+                    <input type="text" className=" rounded input" placeholder="Enter city..."
+                     onChange={handleCityChange}  />
+                    
+                    <input type="submit" value="Search" className=" ms-2 rounded submit-button" />
                    </form>
                    
                    <div className="weatherdata">

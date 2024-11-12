@@ -1,4 +1,5 @@
 import React from "react";
+import "./Weather.css";
 
 
 
@@ -21,34 +22,36 @@ export default function ForcastDay(props){
 
     function minTemperature(){
         let minTemp=Math.round(props.forcast.temperature.minimum);
-        return `${minTemp}`
+        return <span className="red">{minTemp}</span>
     }
     
     
 
     return(
-        <div> 
-    <div className="weather">
-        <div className="day">
-            
-        </div>
-        <div className="temp">
-            <div className="days">
-                {ForcastDay()}
-
+        
+    <div className="forcast ">
+       
+        
+        <div className="forcastWrapper">
+            <div 
+            className="forcastDay"> {ForcastDay()} 
             </div>
           
-                <div className="image">
+                <div >
                     <img src={props.forcast.condition.icon_url} 
-                    alt={props.forcast.condition.description} />
+                    alt={props.forcast.condition.description}  className="forcastIcon"/>
                 </div>
+                
                 <div className="max-min">
-                <span className="me-2" >{maxTemperature()}</span>
-                <span >{minTemperature()}</span>
+                <span className=" me-2 fw-light">{minTemperature()}°
+                </span>
+                <span className="colorChange" >{maxTemperature()}°
+                </span>
                  </div>
+       
         </div>
-
-    </div>
-        </div>
+</div>
+    
+        
     )
 }
