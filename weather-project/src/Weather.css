@@ -1,3 +1,7 @@
+:root{
+    --font-family:"Pacifico";
+    --body-font:"Amaranth", sans-serif;
+}
 
 @media(max-width:700px){
     .city-temp .temp{
@@ -16,6 +20,14 @@
         font-size: 11px;
         padding: 1.5px;
         margin: 0;
+        margin-top: 20px;
+    }
+    .footer p{
+    position: relative;
+    bottom: 30px;
+   }
+    .weather-wrapper footer{
+        font-size: 10px;
     }
     .max-min{
     font-size: 10px;
@@ -46,11 +58,10 @@
 
 }
 
-
-
 .city{
 font-size: 50px;
 font-weight: bolder;
+font-family:var(--body-font);
 
 }
 
@@ -58,6 +69,7 @@ font-weight: bolder;
 display: flex;
 justify-content: space-around;
 margin: 40px 30px;
+
 
 }
 
@@ -88,17 +100,38 @@ position: relative;
 margin-top: 50px;
 margin-left: 10px;
 }
+
 .forcastIcon{
 max-width: 90px;
 position: relative;
 bottom: 10px;  
+}
 
+footer{
+    font-size: 17px;
+    color:blanchedalmond;
+    margin-top: 70px;
+    font-family: var(--font-family);
+    font-style: normal;
+    padding-bottom:60px ;
+    }
+
+.github{
+    color:mediumaquamarine;
+    font-size: 20px;
+}
+
+p a{
+    color:mediumaquamarine;
+    font-size: 14px;
+    font-weight: 600;
 }
 
 .input{
 margin-top: 50px;
 padding: 9px 30px;
 }
+
 .max-min{
 position: relative;
 bottom: 20px;
@@ -123,7 +156,7 @@ color: grey;
 }
 
 .temp{
-
+font-family: "Amaranth", sans-serif;
 font-size: 60px;
 }
 
@@ -137,12 +170,7 @@ margin-top: 20px;
 background-image: url("./images/clearclouds.jpg");
 background-size: cover ;  
 color: white;
-
-
-
-
-
-
+font-weight: l;
 
 }
 

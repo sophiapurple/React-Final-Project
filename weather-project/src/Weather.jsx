@@ -5,6 +5,7 @@ import"./Weather.css";
 import WeatherData from "./WeatherData";
 import WeatherForcast from "./WeatherForcast";
 
+
 import CLEARCLOUDS from "./images/clearclouds.jpg"
 import axios from "axios";
 
@@ -74,9 +75,9 @@ export default function  Weather(props){
 
         
            
-            <footer>
-                <p>It was coded by Chinelo Okpala, open sourced  <a href=""></a>
-                  and hosted  <a href=""></a>  </p>
+            <footer className="footer">
+                <p>Coded by Chinelo, open sourced in  <a href="https://github.com/sophiapurple/React-Final-Project"><i class="fa-brands fa-github github"></i></a>
+                 {" "} and hosted in <a href="">render</a>  </p>
                 </footer>
     
         </div>
