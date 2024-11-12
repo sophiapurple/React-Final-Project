@@ -75,8 +75,8 @@ export default function  Weather(props){
         
            
             <footer>
-                <p>It was coded by Chinelo Okpala, open sourced
-                    </p>
+                <p>It was coded by Chinelo Okpala, open sourced  <a href=""></a>
+                  and hosted  <a href=""></a>  </p>
                 </footer>
     
         </div>
